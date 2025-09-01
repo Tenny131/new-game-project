@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl551ul5h1a70"
-path="res://.godot/imported/walk and idle.png-e482d35f2ece5251fe113a31ad1607f1.ctex"
+uid="uid://pe22acnsxiu6"
+path="res://.godot/imported/Adam_phone_16x16.png-47147594f15602d93e070da435380ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/main character/walk and idle.png"
-dest_files=["res://.godot/imported/walk and idle.png-e482d35f2ece5251fe113a31ad1607f1.ctex"]
+source_file="res://assets/game/characters/main character/Adam_phone_16x16.png"
+dest_files=["res://.godot/imported/Adam_phone_16x16.png-47147594f15602d93e070da435380ec4.ctex"]
 
 [params]
 

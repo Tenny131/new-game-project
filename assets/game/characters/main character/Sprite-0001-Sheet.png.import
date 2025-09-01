@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq0mv0ue7awk"
-path="res://.godot/imported/Adam_run_16x16.png-624da18b9da86d5aedd54411b8f800c6.ctex"
+uid="uid://c8afq7y0posgf"
+path="res://.godot/imported/Sprite-0001-Sheet.png-613a91fb99921af99e3f113d33771db5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/Adam_run_16x16.png"
-dest_files=["res://.godot/imported/Adam_run_16x16.png-624da18b9da86d5aedd54411b8f800c6.ctex"]
+source_file="res://assets/game/characters/main character/Sprite-0001-Sheet.png"
+dest_files=["res://.godot/imported/Sprite-0001-Sheet.png-613a91fb99921af99e3f113d33771db5.ctex"]
 
 [params]
 

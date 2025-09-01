@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdaiasn1o20o0"
-path="res://.godot/imported/Adam_16x16.png-5b9b329f83445ead0f46f8cd684dcc24.ctex"
+uid="uid://drot5aq5e7f83"
+path="res://.godot/imported/Adam_sit_16x16.png-8ce6c28c35449bd5b61cafb10b735a7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/Adam_16x16.png"
-dest_files=["res://.godot/imported/Adam_16x16.png-5b9b329f83445ead0f46f8cd684dcc24.ctex"]
+source_file="res://assets/game/characters/main character/Adam_sit_16x16.png"
+dest_files=["res://.godot/imported/Adam_sit_16x16.png-8ce6c28c35449bd5b61cafb10b735a7a.ctex"]
 
 [params]
 

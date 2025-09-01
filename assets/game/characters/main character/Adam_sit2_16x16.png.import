@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bssuidby1umx"
-path="res://.godot/imported/Adam_idle_16x16.png-b72735362034c8174fcaea4fc19761aa.ctex"
+uid="uid://dhy4lhbinxeqe"
+path="res://.godot/imported/Adam_sit2_16x16.png-f72d44c7e5aa8feee0cb029c0bf6f836.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/characters/Adam_idle_16x16.png"
-dest_files=["res://.godot/imported/Adam_idle_16x16.png-b72735362034c8174fcaea4fc19761aa.ctex"]
+source_file="res://assets/game/characters/main character/Adam_sit2_16x16.png"
+dest_files=["res://.godot/imported/Adam_sit2_16x16.png-f72d44c7e5aa8feee0cb029c0bf6f836.ctex"]
 
 [params]
 
