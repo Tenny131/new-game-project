@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://gbn4ua3i60mb"]
+
+[ext_resource type="Texture2D" uid="uid://vw60hvpyiyto" path="res://assets/game/structures/plants.png" id="1_bcctm"]
+[ext_resource type="PackedScene" uid="uid://bkut4y5acorqd" path="res://scenes/components/collectable_component.tscn" id="2_e2a05"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2a05"]
+atlas = ExtResource("1_bcctm")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5rqd"]
+radius = 4.12311
+
+[node name="Log_Drop" type="Sprite2D"]
+texture = SubResource("AtlasTexture_e2a05")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_e2a05")]
+collectable_name = "Log"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_s5rqd")
+debug_color = Color(0.54592, 0.53878, 0.480244, 0.42)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bdb5nc2s6fwug"]
+
+[ext_resource type="Script" uid="uid://bmgqr2q0gfvqb" path="res://scripts/inventory_item.gd" id="1_hpk1w"]
+[ext_resource type="Texture2D" uid="uid://dy3ylg48qkp2t" path="res://assets/game/objects/items/Orange Gem.png" id="2_v4t6l"]
+
+[resource]
+script = ExtResource("1_hpk1w")
+name = "Stone"
+texture = ExtResource("2_v4t6l")
+metadata/_custom_type_script = "uid://bmgqr2q0gfvqb"

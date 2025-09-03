@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://xlq5etv3j2c1"]
+
+[ext_resource type="Texture2D" uid="uid://vw60hvpyiyto" path="res://assets/game/structures/plants.png" id="1_v74qq"]
+[ext_resource type="PackedScene" uid="uid://bkut4y5acorqd" path="res://scenes/components/collectable_component.tscn" id="2_5vt1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v403p"]
+atlas = ExtResource("1_v74qq")
+region = Rect2(114, 18, 10, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8w5qj"]
+radius = 2.0
+
+[node name="StoneOreDrop" type="Sprite2D"]
+texture = SubResource("AtlasTexture_v403p")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_5vt1f")]
+item_name = "Stone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_8w5qj")
+debug_color = Color(0.793761, 0.761429, 0.725724, 0.42)

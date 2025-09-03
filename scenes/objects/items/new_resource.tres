@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bxoon4pxmbovi"]
+
+[ext_resource type="Script" uid="uid://bmgqr2q0gfvqb" path="res://scripts/inventory_item.gd" id="1_ygmaj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0flb7"]
+
+[resource]
+script = ExtResource("1_ygmaj")
+name = "card1"
+texture = SubResource("PlaceholderTexture2D_0flb7")
+metadata/_custom_type_script = "uid://bmgqr2q0gfvqb"

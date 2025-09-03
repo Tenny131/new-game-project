@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dicpkci5tkgdp"]
 
-[ext_resource type="Texture2D" uid="uid://dniwsavs1df83" path="res://assets/game/tilesets/Wooden_House_Walls_Tilset.png" id="1_yxgbh"]
-[ext_resource type="Texture2D" uid="uid://bfv1gy37j4qe0" path="res://assets/Houses and Rooms/Interiors_free_16x16.png" id="2_c4aqv"]
+[ext_resource type="Texture2D" uid="uid://dniwsavs1df83" path="res://assets/game/structures/houses/wooden_house.png" id="1_yxgbh"]
+[ext_resource type="Texture2D" uid="uid://bfv1gy37j4qe0" path="res://assets/game/structures/houses/interiors.png" id="2_c4aqv"]
 [ext_resource type="PackedScene" uid="uid://b3wr20x26yr0l" path="res://scenes/houses/door.tscn" id="3_c4aqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqqe"]

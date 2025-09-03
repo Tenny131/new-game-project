@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://gixj08vijc5y"]
+
+[ext_resource type="Script" uid="uid://bfxt60k33b4rl" path="res://inventory/scrips/inv_ui_slot.gd" id="1_nsi11"]
+
+[node name="InventoryUiSlot" type="Panel"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nsi11")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ItemDisplay" type="Sprite2D" parent="CenterContainer/Panel"]
+position = Vector2(-20, -20)
