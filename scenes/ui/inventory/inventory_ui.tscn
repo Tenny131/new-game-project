@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgxgvvlr2bfn2"]
 
-[ext_resource type="Script" uid="uid://duq3r2mfq6yr6" path="res://inventory/scrips/inv_ui.gd" id="1_7rvkw"]
+[ext_resource type="Script" uid="uid://duq3r2mfq6yr6" path="res://scripts/inventory/inv_ui.gd" id="1_7rvkw"]
 [ext_resource type="Texture2D" uid="uid://bmo34q82lp2bu" path="res://assets/UI/inventory/default_inventory_background.png" id="2_45d2x"]
-[ext_resource type="PackedScene" uid="uid://bmm6261dfw5wv" path="res://inventory/scenes/inv_ui_slot.tscn" id="3_cedrj"]
+[ext_resource type="PackedScene" uid="uid://bmm6261dfw5wv" path="res://scenes/ui/inventory/inv_ui_slot.tscn" id="3_cedrj"]
 
 [node name="InventoryUI" type="Control"]
 custom_minimum_size = Vector2(208, 112)

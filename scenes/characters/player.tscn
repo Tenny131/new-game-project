@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://hyma1ecmsgmj" path="res://scripts/character/player/walk_state.gd" id="6_6avc5"]
 [ext_resource type="Script" uid="uid://csl7lefi0tfc1" path="res://scripts/character/player/mining_state.gd" id="9_42irl"]
 [ext_resource type="PackedScene" uid="uid://dqtgw1l5llmw0" path="res://scenes/components/hit_component.tscn" id="11_djydg"]
-[ext_resource type="PackedScene" uid="uid://cgxgvvlr2bfn2" path="res://inventory/scenes/inventory_ui.tscn" id="13_xhtjm"]
+[ext_resource type="PackedScene" uid="uid://cgxgvvlr2bfn2" path="res://scenes/ui/inventory/inventory_ui.tscn" id="13_xhtjm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6avc5"]
 atlas = ExtResource("1_686vu")

@@ -18,9 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 ToolManager="*res://scripts/globals/tool_manager.gd"
-JsonData="*res://scripts/globals/json_data.gd"
-PlayerInventory="*res://scripts/globals/player_inventory.gd"
-Item="*res://scripts/items/item.gd"
 
 [display]
 

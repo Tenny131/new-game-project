@@ -1,10 +1,9 @@
 extends Resource
-
 class_name Inv
 
 signal update
 
-@export var slots: Array[InvSlot]
+@export var slots: Array[InvSlot] = []
 
 func insert(item: InvItem):
 	var itemslots = slots.filter(func(slot): return slot.item == item)

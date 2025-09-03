@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardDef" load_steps=3 format=3 uid="uid://c3pblh5g4s0n"]
+
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://scripts/items/card_def.gd" id="1_y4ljy"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vm6qq"]
+
+[resource]
+script = ExtResource("1_y4ljy")
+name = "test2"
+description = "asd"
+level = 3
+atk = 6
+hp = 5
+icon = SubResource("PlaceholderTexture2D_vm6qq")
+metadata/_custom_type_script = "uid://blx7xg37orbhb"

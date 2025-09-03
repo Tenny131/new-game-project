@@ -1,15 +1,83 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4dagw6pt0lld"]
+[gd_scene load_steps=6 format=3 uid="uid://cksx77x5adxop"]
 
-[ext_resource type="Script" uid="uid://b7nqejm4bf3ww" path="res://scenes/ui/inventory.gd" id="1_5yy05"]
 [ext_resource type="Texture2D" uid="uid://bmo34q82lp2bu" path="res://assets/UI/inventory/default_inventory_background.png" id="1_avmd0"]
 [ext_resource type="Texture2D" uid="uid://bnwxrajgeylmq" path="res://assets/UI/inventory/item_slot_default_background.png" id="2_xeaml"]
-[ext_resource type="Script" uid="uid://c83fi858266kq" path="res://scenes/ui/slots.gd" id="3_xeaml"]
+
+[sub_resource type="GDScript" id="GDScript_avmd0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yy05"]
 texture = ExtResource("2_xeaml")
 
+[sub_resource type="GDScript" id="GDScript_xeaml"]
+script/source = "class_name Slots
+extends Node
+
+var default_texture = preload(\"res://assets/UI/inventory/default_inventory_background.png\")
+var empty_texture = preload(\"res://assets/UI/inventory/item_slot_empty_background.png\")
+
+var default_style: StyleBoxTexture = null
+var empty_style: StyleBoxTexture = null
+
+#var card = preload(\"res://scenes/objects/cards/base_card.tscn\")
+var ItemClass = preload(\"res://scenes/objects/items/item_drop.tscn\")
+var item = null
+var slot_size = Vector2(18, 18)
+
+func _ready() -> void:
+	default_style = StyleBoxTexture.new()
+	empty_style = StyleBoxTexture.new()
+	default_style.texture = default_texture
+	empty_style.texture = empty_texture
+	
+	if randi() % 2 == 0:
+		#if randi() % 2 == 0:
+			#item = card.instantiate()
+			#item.scale = Vector2(0.03, 0.03)
+			#item.position = slot_size / 2
+			#add_child(item)
+		#else:
+		#item = card.instantiate()
+		#item.scale = Vector2(0.3, 0.3)
+		#item.position = slot_size / 2
+		#add_child(item)
+		pass
+	refresh_style()
+	
+func refresh_style():
+	if item == null:
+		set('theme_override_styles/panel', empty_style)
+	else:
+		set('theme_override_styles/panel', default_style)
+		
+func pick_from_slot():
+	remove_child(item)
+	var inventory_node = find_parent(\"Inventory\")
+	inventory_node.add_child(item)
+	item = null
+	refresh_style()
+	
+func put_into_slot(new_item):
+	item = new_item
+	item.position = slot_size / 2
+	var inventory_node = find_parent(\"Inventory\")
+	inventory_node.remove_child(item)
+	add_child(item)
+	refresh_style()
+	
+func initialize_item(item_name, item_quantity):
+	if item == null:
+		item = ItemClass.instantiate()
+		add_child(item)
+		#item.set_item(item_name, item_quantity)
+	else:
+		pass#item.set_item(item_name, item_quantity)
+	refresh_style()
+		
+	
+"
+
 [node name="Inventory" type="Node2D"]
-script = ExtResource("1_5yy05")
+script = SubResource("GDScript_avmd0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 6.0
@@ -31,118 +99,118 @@ columns = 5
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot2" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot3" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot4" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot5" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot6" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot7" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot8" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot9" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot10" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot11" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot12" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot13" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot14" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot15" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot16" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot17" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot18" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot19" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")
 
 [node name="Slot20" type="Panel" parent="GridContainer"]
 custom_minimum_size = Vector2(18, 19)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5yy05")
-script = ExtResource("3_xeaml")
+script = SubResource("GDScript_xeaml")

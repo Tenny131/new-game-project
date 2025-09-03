@@ -8,10 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://scenes/characters/player.tscn" id="4_df662"]
 [ext_resource type="Resource" uid="uid://leygg6rjgk7t" path="res://scenes/objects/items/card3.tres" id="5_i64es"]
 
-[node name="TestSceneCards" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="TestSceneCards" type="Node2D"]
 script = ExtResource("1_jkwmv")
 card_pool = Array[ExtResource("2_etefc")]([ExtResource("3_v0t5g"), ExtResource("4_c7byu"), ExtResource("5_i64es")])
-player = NodePath("Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
