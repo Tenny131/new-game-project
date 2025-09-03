@@ -11,4 +11,6 @@ level = 2
 atk = 5
 hp = 4
 icon = ExtResource("1_vm6qq")
+stack_size = 99
+rarity = "Legendary"
 metadata/_custom_type_script = "uid://blx7xg37orbhb"

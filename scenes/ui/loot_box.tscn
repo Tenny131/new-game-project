@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://d28wyd768cv4i"]
+
+[ext_resource type="Script" uid="uid://bui3k70mo7cdd" path="res://scripts/components/loot_box_component.gd" id="1_cp87q"]
+[ext_resource type="Resource" uid="uid://32raf761nwkw" path="res://inventory/player_inventory.tres" id="2_7rv3c"]
+[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://scenes/characters/player.tscn" id="2_tno8m"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://scripts/items/card_def.gd" id="3_4ou87"]
+[ext_resource type="Resource" uid="uid://b1bks1374nmmq" path="res://scenes/objects/items/card1.tres" id="4_v0c37"]
+[ext_resource type="Resource" uid="uid://leygg6rjgk7t" path="res://scenes/objects/items/card3.tres" id="5_cypfb"]
+[ext_resource type="Resource" uid="uid://c3pblh5g4s0n" path="res://scenes/objects/items/card2.tres" id="6_usvkx"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 112.0
+offset_bottom = 40.0
+text = "Booster Box"
+
+[node name="LootBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cp87q")
+player_inventory = ExtResource("2_7rv3c")
+card_pool = Array[ExtResource("3_4ou87")]([ExtResource("4_v0c37"), ExtResource("5_cypfb"), ExtResource("6_usvkx")])
+spawn_point_path = NodePath("../CardSpawnPoint")
+
+[node name="CardSpawnPoint" type="Node2D" parent="."]
+position = Vector2(529, 137)
+
+[node name="Player" parent="." instance=ExtResource("2_tno8m")]
