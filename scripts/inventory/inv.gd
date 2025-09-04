@@ -36,3 +36,26 @@ func insert(item: InvItem, amount: int = 1) -> bool:
 
 	update.emit()
 	return remaining == 0
+	
+func count_by_id(id: String) -> int:
+	var total: int = 0
+	for s in slots:
+		if s.item and s.item.id == id:
+			total += s.amount
+	return total
+
+
+func remove_by_id(id: String, amount: int) -> bool:
+	var left: int = amount
+	for s in slots:
+		if s.item and s.item.id == id:
+			var take: int = left if left < s.amount else s.amount  # <- no Variant
+			s.amount -= take
+			left -= take
+			if s.amount <= 0:
+				s.item = null
+			if left == 0:
+				update.emit()
+				return true
+	update.emit()
+	return false

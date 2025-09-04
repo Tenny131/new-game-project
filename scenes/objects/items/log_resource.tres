@@ -1,14 +1,4 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=4 format=3 uid="uid://bn0qh1e83uxc5"]
-
-[ext_resource type="Script" uid="uid://bmgqr2q0gfvqb" path="res://scripts/inventory_item.gd" id="1_0c4qx"]
-[ext_resource type="Texture2D" uid="uid://dp1k0wtycsotl" path="res://assets/game/objects/items/tools_and_materials.png" id="2_j7sto"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3hhmd"]
-atlas = ExtResource("2_j7sto")
-region = Rect2(33, 17, 14, 14)
+[gd_resource type="Resource" format=3 uid="uid://bn0qh1e83uxc5"]
 
 [resource]
-script = ExtResource("1_0c4qx")
-name = "log"
-texture = SubResource("AtlasTexture_3hhmd")
 metadata/_custom_type_script = "uid://bmgqr2q0gfvqb"

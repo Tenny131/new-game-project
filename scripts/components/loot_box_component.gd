@@ -19,6 +19,9 @@ signal opened(def: CardDef, item: InvItem)
 @export var card_preview_spawn_path: NodePath            # ← assign your Node2D CardPreviewSpawnPoint here
 @export var clear_previous_preview: bool = true
 
+@export var cost_item_id := "Shard"
+@export var cost_amount := 10
+
 @onready var reel: ScrollContainer = $Reel
 @onready var row: HBoxContainer = $Reel/Row
 @onready var marker: ColorRect = $Marker
@@ -36,6 +39,12 @@ func _ready() -> void:
 	btn.disabled = card_pool.is_empty() or player_inventory == null
 
 func _on_button_pressed() -> void:
+	if player_inventory.count_by_id(cost_item_id) < cost_amount:
+		print("not enough shards")
+		# TODO: show “Not enough Shards” popup / tint button red briefly
+		return
+		player_inventory.remove_by_id(cost_item_id, cost_amount)
+
 	if _spinning or card_pool.is_empty() or player_inventory == null:
 		return
 

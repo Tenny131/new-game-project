@@ -56,6 +56,15 @@ text = "X"
 [node name="Content" parent="Window/VBox" instance=ExtResource("1_3giwu")]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
+draws_per_open = null
+tile_size = null
+tile_gap = null
+tiles_to_spin = null
+base_card_scene = null
+preview_in_reel_end = null
+clear_previous_preview = null
+cost_item_id = null
+cost_amount = null
 
 [node name="MarginContainer" type="MarginContainer" parent="Window/VBox"]
 layout_mode = 2
