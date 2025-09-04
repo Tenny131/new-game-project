@@ -33,17 +33,24 @@ var _spinning := false
 var _last_preview: BaseCard = null
 
 func _ready() -> void:
-	randomize()
-	row.add_theme_constant_override("separation", tile_gap)
-	btn.pressed.connect(_on_button_pressed)
-	btn.disabled = card_pool.is_empty() or player_inventory == null
+	# ... existing ...
+	if player_inventory:
+		player_inventory.update.connect(_refresh_afford)
+	_refresh_afford()
+
+func _refresh_afford() -> void:
+	btn.disabled = card_pool.is_empty() or player_inventory == null or not _can_afford()
+
 
 func _on_button_pressed() -> void:
-	if player_inventory.count_by_id(cost_item_id) < cost_amount:
-		print("not enough shards")
-		# TODO: show “Not enough Shards” popup / tint button red briefly
+	if _spinning or card_pool.is_empty() or player_inventory == null:
 		return
-		player_inventory.remove_by_id(cost_item_id, cost_amount)
+	if not _can_afford():
+		# TODO: flash the button red or show a toast “Not enough Shards”
+		return
+	if not _pay_cost():
+		return
+	# ... existing spin logic continues ...
 
 	if _spinning or card_pool.is_empty() or player_inventory == null:
 		return
@@ -59,6 +66,7 @@ func _on_button_pressed() -> void:
 		item.id = def.name
 		item.texture = def.icon
 		item.stack_size = def.stack_size
+		item.card_def = def
 		player_inventory.insert(item, 1)
 		opened.emit(def, item)
 
@@ -157,3 +165,11 @@ static func _pick_weighted(pool: Array[CardDef]) -> CardDef:
 		if r <= 0.0:
 			return def
 	return pool.back()
+	
+func _can_afford() -> bool:
+	var inv_ref: Inv = player_inventory
+	return inv_ref != null and inv_ref.count_by_id(cost_item_id) >= cost_amount
+
+func _pay_cost() -> bool:
+	var inv_ref: Inv = player_inventory
+	return inv_ref != null and inv_ref.remove_by_id(cost_item_id, cost_amount)

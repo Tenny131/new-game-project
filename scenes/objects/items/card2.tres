@@ -12,4 +12,6 @@ level = 3
 atk = 6
 hp = 5
 icon = SubResource("PlaceholderTexture2D_vm6qq")
+stack_size = 99
+rarity = "Legendary"
 metadata/_custom_type_script = "uid://blx7xg37orbhb"

@@ -15,18 +15,14 @@ func _ready() -> void:
 	# Hook lootbox "opened" signal to show result text
 	if content.has_signal("opened"):
 		content.connect("opened", _on_opened)
-	close_btn.pressed.connect(close)
-	close2_btn.pressed.connect(close)
+	close_btn.pressed.connect(close_basic_lootbox)
+	close2_btn.pressed.connect(close_basic_lootbox)
 	open10_btn.pressed.connect(func(): _set_draws(10))
 	var col = CardDef.RARITY_COLOR
 	$Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/CommonBox/ColorRect.color = col["Common"]
 	$Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/UncommonBox/ColorRect.color = col["Uncommon"]
 	$Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/RareBox/ColorRect.color = col["Rare"]
 	$Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/LegendaryBox/ColorRect.color = col["Legendary"]
-
-func _unhandled_input(event: InputEvent) -> void:
-	if visible and event.is_action_pressed("ui_cancel"):
-		close()
 
 func _set_draws(n: int) -> void:
 	if content.has_method("set"): # exported var draws_per_open
@@ -38,12 +34,19 @@ func _on_opened(def: CardDef, _item: InvItem) -> void:
 	if def.has_method("get_color"):
 		result_text.add_theme_color_override("font_color", def.get_color())
 
-func open() -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if not visible:
+		return
+	if event.is_action_pressed("ui_cancel"):
+		close_basic_lootbox()
+		get_viewport().set_input_as_handled()
+
+func open_basic_lootbox() -> void:
 	visible = true
-	var t := create_tween()
+	var t: Tween = create_tween()
 	t.tween_property(self, "modulate:a", 1.0, 0.18)
 
-func close() -> void:
-	var t := create_tween()
+func close_basic_lootbox() -> void:
+	var t: Tween = create_tween()
 	t.tween_property(self, "modulate:a", 0.0, 0.15)
-	t.finished.connect(func(): visible = false)
+	t.finished.connect(func() -> void: visible = false)

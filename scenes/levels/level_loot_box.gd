@@ -1,8 +1,8 @@
-# e.g. Main.gd on your main scene root (Node2D/Node/Control)
+# LevelLootBox.gd (on your Level root)
 extends Node2D
 
-@onready var loot_ui: Control = $LootBoxOverlay # adjust path
+@onready var loot_ui: Control = $LootBoxOverlay
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("open lootbox"):  # add this action in Project > Input Map
-		loot_ui.open()
+	if event.is_action_pressed("open_lootbox"):  # bind to L in Input Map
+		loot_ui.open_basic_lootbox()

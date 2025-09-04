@@ -27,5 +27,6 @@ func _on_button_pressed() -> void:
 	item.id = def.name
 	item.texture = def.icon
 	item.stack_size = def.stack_size  # enable stacking
+	item.card_def = def
 
 	player_inventory.insert(item, 1)  # insert 1 copy

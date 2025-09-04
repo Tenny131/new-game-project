@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1mihm1m405j6"]
+[gd_scene load_steps=4 format=3 uid="uid://c1mihm1m405j6"]
 
 [ext_resource type="PackedScene" uid="uid://d28wyd768cv4i" path="res://scenes/ui/loot_box.tscn" id="1_3giwu"]
 [ext_resource type="Script" uid="uid://qmo0pa657jrh" path="res://scripts/inventory/loot_box_overlay.gd" id="1_3yy4r"]
 [ext_resource type="Texture2D" uid="uid://bmo34q82lp2bu" path="res://assets/UI/inventory/default_inventory_background.png" id="1_wrano"]
-[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://scenes/characters/player.tscn" id="4_3c5sf"]
 
 [node name="LootBoxOverlay" type="Control"]
 custom_minimum_size = Vector2(400, 200)
@@ -56,15 +55,11 @@ text = "X"
 [node name="Content" parent="Window/VBox" instance=ExtResource("1_3giwu")]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
-draws_per_open = null
-tile_size = null
-tile_gap = null
-tiles_to_spin = null
-base_card_scene = null
-preview_in_reel_end = null
-clear_previous_preview = null
-cost_item_id = null
-cost_amount = null
+
+[node name="Control" type="Control" parent="Window/VBox/Content"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Window/VBox"]
 layout_mode = 2
@@ -129,6 +124,3 @@ layout_mode = 2
 text = "close"
 
 [node name="Node2D" type="Node2D" parent="."]
-
-[node name="Player" parent="." instance=ExtResource("4_3c5sf")]
-position = Vector2(290, 208)
