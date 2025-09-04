@@ -21,11 +21,6 @@ position = Vector2(343, 140)
 [node name="BaseCard2" parent="CanvasLayer" instance=ExtResource("2_frvsy")]
 visible = false
 position = Vector2(132, 149)
-card_level = 2
-card_atk = 8
-card_hp = 20
-card_name = "BOSS"
-card_description = "geil"
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 offset_left = 10.0

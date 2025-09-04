@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1mihm1m405j6"]
+
+[ext_resource type="PackedScene" uid="uid://d28wyd768cv4i" path="res://scenes/ui/loot_box.tscn" id="1_3giwu"]
+[ext_resource type="Script" uid="uid://qmo0pa657jrh" path="res://scripts/inventory/loot_box_overlay.gd" id="1_3yy4r"]
+[ext_resource type="Texture2D" uid="uid://bmo34q82lp2bu" path="res://assets/UI/inventory/default_inventory_background.png" id="1_wrano"]
+[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://scenes/characters/player.tscn" id="4_3c5sf"]
+
+[node name="LootBoxOverlay" type="Control"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -240.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3yy4r")
+
+[node name="Dimmer" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 200.0
+color = Color(0, 0, 0.0235294, 0.447059)
+
+[node name="Window" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 200.0
+texture = ExtResource("1_wrano")
+
+[node name="VBox" type="VBoxContainer" parent="Window"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 34
+
+[node name="TitleBar" type="HBoxContainer" parent="Window/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 190
+alignment = 1
+
+[node name="Title" type="Label" parent="Window/VBox/TitleBar"]
+layout_mode = 2
+text = "                   Card Case"
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="Window/VBox/TitleBar"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+theme_override_constants/h_separation = 8
+text = "X"
+
+[node name="Content" parent="Window/VBox" instance=ExtResource("1_3giwu")]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBox"]
+layout_mode = 2
+
+[node name="InfoRow" type="HBoxContainer" parent="Window/VBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResultText" type="Label" parent="Window/VBox/MarginContainer/InfoRow"]
+layout_mode = 2
+text = "Roll a Card!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBox/MarginContainer/InfoRow"]
+layout_mode = 2
+
+[node name="RarityLegend" type="HBoxContainer" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer"]
+layout_mode = 2
+
+[node name="CommonBox" type="HBoxContainer" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/CommonBox"]
+layout_mode = 2
+
+[node name="UncommonBox" type="HBoxContainer" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/UncommonBox"]
+layout_mode = 2
+
+[node name="RareBox" type="HBoxContainer" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/RareBox"]
+layout_mode = 2
+
+[node name="LegendaryBox" type="HBoxContainer" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/LegendaryBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/LegendaryBox"]
+layout_mode = 2
+text = "Common"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Window/VBox"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Window/VBox/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Open10" type="Button" parent="Window/VBox/MarginContainer2/Buttons"]
+layout_mode = 2
+text = "open 10 Cases"
+
+[node name="Close2" type="Button" parent="Window/VBox/MarginContainer2/Buttons"]
+layout_mode = 2
+text = "close"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("4_3c5sf")]
+position = Vector2(290, 208)
