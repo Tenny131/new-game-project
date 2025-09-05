@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CardDef" load_steps=6 format=3 uid="uid://b1bks1374nmmq"]
+
+[ext_resource type="Script" uid="uid://cu87gdjapvob3" path="res://content/cards/card_effects/card_effect.gd" id="1_ltras"]
+[ext_resource type="Script" uid="uid://l7qqa7ygv18k" path="res://content/cards/card_effects/ramp_up_atk.gd" id="2_5ec7n"]
+[ext_resource type="Texture2D" uid="uid://dy3ylg48qkp2t" path="res://assets/game/items/Orange Gem.png" id="3_qtd4l"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="4_f1vl2"]
+
+[sub_resource type="Resource" id="Resource_lyk67"]
+script = ExtResource("2_5ec7n")
+percent_per_turn = 90.0
+metadata/_custom_type_script = "uid://l7qqa7ygv18k"
+
+[resource]
+script = ExtResource("4_f1vl2")
+id = &"2"
+name = "test1"
+description = "asd"
+level = 2
+atk = 50
+hp = 4000
+icon = ExtResource("3_qtd4l")
+stack_size = 99
+effects = Array[ExtResource("1_ltras")]([SubResource("Resource_lyk67")])
+rarity = "Legendary"
+metadata/_custom_type_script = "uid://blx7xg37orbhb"

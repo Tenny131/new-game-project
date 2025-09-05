@@ -1,0 +1,237 @@
+[gd_scene load_steps=7 format=3 uid="uid://i4ythqvndbuh"]
+
+[ext_resource type="Texture2D" uid="uid://bmo34q82lp2bu" path="res://assets/UI/inventory/default_inventory_background.png" id="1_cepqi"]
+[ext_resource type="Script" uid="uid://dwnxjnfhlfkoy" path="res://ui/ui_player/player_inv/inv_tab_system.gd" id="1_jc1ux"]
+[ext_resource type="Resource" uid="uid://dwc7k7d1ccfan" path="res://characters/player/player_equipment.tres" id="2_c2lh6"]
+[ext_resource type="PackedScene" uid="uid://becew1fnq7158" path="res://ui/ui_player/player_inv/inv_ui_slot_NEWW.tscn" id="2_cepqi"]
+[ext_resource type="StyleBox" uid="uid://yijfck2m2fpg" path="res://ui/ui_player/player_inv/placeholder.tres" id="3_ufcav"]
+[ext_resource type="PackedScene" uid="uid://iyfqji8tr2jd" path="res://ui/ui_player/player_inv/equip_ui_slot_NEWW.tscn" id="4_8mn87"]
+
+[node name="InventorySystem" type="Control"]
+custom_minimum_size = Vector2(500, 450)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_jc1ux")
+loadout = ExtResource("2_c2lh6")
+cards_grid_path = NodePath("Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid")
+items_grid_path = NodePath("Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid")
+equip_grid_path = NodePath("Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid")
+
+[node name="Inventory" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InvLabel" type="Label" parent="Inventory"]
+layout_mode = 2
+text = "INVENTORY"
+
+[node name="InvBackground" type="NinePatchRect" parent="Inventory"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+texture = ExtResource("1_cepqi")
+
+[node name="InvMargin" type="MarginContainer" parent="Inventory/InvBackground"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 486.0
+offset_bottom = 411.0
+theme_override_constants/margin_left = 23
+
+[node name="Content" type="HBoxContainer" parent="Inventory/InvBackground/InvMargin"]
+layout_mode = 2
+theme_override_constants/separation = 49
+
+[node name="EquipPanel" type="VBoxContainer" parent="Inventory/InvBackground/InvMargin/Content"]
+custom_minimum_size = Vector2(73, 107)
+layout_mode = 2
+theme_override_constants/separation = 58
+
+[node name="EquipLabel" type="Label" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel"]
+layout_mode = 2
+text = "EQUIPPED"
+horizontal_alignment = 1
+
+[node name="EquipGrid" type="GridContainer" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_constants/h_separation = 12
+columns = 2
+
+[node name="EquipUiSlot" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="EquipUiSlot2" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="EquipUiSlot3" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="EquipUiSlot4" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="EquipUiSlot5" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="EquipUiSlot6" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="EquipUiSlot7" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="EquipUiSlot8" parent="Inventory/InvBackground/InvMargin/Content/EquipPanel/EquipGrid" instance=ExtResource("4_8mn87")]
+layout_mode = 2
+
+[node name="InventoryPanel" type="VBoxContainer" parent="Inventory/InvBackground/InvMargin/Content"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel"]
+visible = false
+layout_mode = 2
+text = "Inventory"
+
+[node name="TabContainer" type="TabContainer" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+theme_override_styles/tab_selected = ExtResource("3_ufcav")
+current_tab = 0
+clip_tabs = false
+tab_focus_mode = 1
+
+[node name="Cards" type="MarginContainer" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_constants/margin_top = 50
+metadata/_tab_index = 0
+
+[node name="CardsScrollContainer" type="ScrollContainer" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+
+[node name="CardsGrid" type="GridContainer" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+columns = 4
+
+[node name="InvUiSlot" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot2" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot3" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot4" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot5" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot6" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot7" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot8" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot9" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot10" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot11" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot12" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot13" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot14" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot15" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot16" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Cards/CardsScrollContainer/CardsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="Items" type="MarginContainer" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_constants/margin_top = 50
+metadata/_tab_index = 1
+
+[node name="ItemsScrollContainer" type="ScrollContainer" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+
+[node name="ItemsGrid" type="GridContainer" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+columns = 4
+
+[node name="InvUiSlot" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot2" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot3" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot4" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot5" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot6" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot7" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot8" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot9" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot10" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot11" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot12" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot13" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot14" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot15" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2
+
+[node name="InvUiSlot16" parent="Inventory/InvBackground/InvMargin/Content/InventoryPanel/TabContainer/Items/ItemsScrollContainer/ItemsGrid" instance=ExtResource("2_cepqi")]
+layout_mode = 2

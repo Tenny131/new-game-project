@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhvir5t7ykxl6"]
+
+[ext_resource type="Script" path="res://scripts/items/item_drop.gd" id="1_colih"]
+[ext_resource type="Texture2D" uid="uid://dy3ylg48qkp2t" path="res://assets/game/items/Orange Gem.png" id="2_ooufx"]
+[ext_resource type="PackedScene" uid="uid://bkut4y5acorqd" path="res://globals/global_components/collectable_component.tscn" id="3_x0x7u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwdff"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvmxg"]
+radius = 6.0
+
+[node name="ItemDrop" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("1_colih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ooufx")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_x0x7u")]
+item_name = "Stone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_gwdff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dvmxg")

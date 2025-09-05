@@ -1,0 +1,142 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgxgvvlr2bfn2"]
+
+[ext_resource type="Script" uid="uid://duq3r2mfq6yr6" path="res://ui/ui_player/player_inv/inv_ui.gd" id="1_ai8jp"]
+[ext_resource type="Resource" uid="uid://dwc7k7d1ccfan" path="res://characters/player/player_equipment.tres" id="2_fyu0d"]
+[ext_resource type="Texture2D" uid="uid://bmo34q82lp2bu" path="res://assets/UI/inventory/default_inventory_background.png" id="2_jjnv6"]
+[ext_resource type="PackedScene" uid="uid://bmm6261dfw5wv" path="res://ui/ui_player/player_inv/inv_ui_slot.tscn" id="3_fyu0d"]
+[ext_resource type="PackedScene" uid="uid://cla4t285du6g6" path="res://ui/ui_player/player_equip/inv_equip_ui_slot.tscn" id="3_jjnv6"]
+
+[node name="InvUI" type="Control"]
+custom_minimum_size = Vector2(208, 112)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 208.0
+offset_bottom = 112.0
+script = ExtResource("1_ai8jp")
+loadout = ExtResource("2_fyu0d")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 208.0
+offset_bottom = 112.0
+texture = ExtResource("2_jjnv6")
+
+[node name="ContentRow" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = -4.0
+offset_right = 199.0
+offset_bottom = 103.0
+
+[node name="EquipPanel" type="VBoxContainer" parent="NinePatchRect/ContentRow"]
+custom_minimum_size = Vector2(73, 107)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="EquipLabel" type="Label" parent="NinePatchRect/ContentRow/EquipPanel"]
+layout_mode = 2
+text = "equipped"
+
+[node name="EquipGrid" type="GridContainer" parent="NinePatchRect/ContentRow/EquipPanel"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 2
+columns = 2
+
+[node name="Battle1" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+
+[node name="Support1" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+slot_type = "SUPPORT"
+
+[node name="Battle2" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+index = 1
+
+[node name="Support2" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+slot_type = "SUPPORT"
+index = 1
+
+[node name="Battle3" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+index = 2
+
+[node name="Support3" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+slot_type = "SUPPORT"
+index = 2
+
+[node name="Battle4" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+index = 3
+
+[node name="Support4" parent="NinePatchRect/ContentRow/EquipPanel/EquipGrid" instance=ExtResource("3_jjnv6")]
+layout_mode = 2
+slot_type = "SUPPORT"
+index = 3
+
+[node name="InvPanel" type="VBoxContainer" parent="NinePatchRect/ContentRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="InvLabel" type="Label" parent="NinePatchRect/ContentRow/InvPanel"]
+layout_mode = 2
+text = "inventory"
+
+[node name="InvGrid" type="GridContainer" parent="NinePatchRect/ContentRow/InvPanel"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="InvUiSlot" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot2" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot3" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot4" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot5" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot6" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot7" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot8" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot9" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot10" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot11" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot12" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot13" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot14" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot15" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2
+
+[node name="InvUiSlot16" parent="NinePatchRect/ContentRow/InvPanel/InvGrid" instance=ExtResource("3_fyu0d")]
+layout_mode = 2

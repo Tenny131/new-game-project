@@ -1,0 +1,52 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2u5exe7g4cbn"]
+
+[ext_resource type="Script" uid="uid://dnbursaypd3wj" path="res://ui/ui_lootbox/loot_box.gd" id="1_7mkul"]
+[ext_resource type="Script" uid="uid://dtfgxlawbtj4l" path="res://ui/ui_player/player_inv/inv.gd" id="2_jcne7"]
+[ext_resource type="Script" uid="uid://cnxvqwb0158xg" path="res://ui/ui_player/player_inv/inv_slot.gd" id="3_0pshh"]
+[ext_resource type="Resource" uid="uid://dwc7k7d1ccfan" path="res://characters/player/player_equipment.tres" id="4_48k4c"]
+[ext_resource type="Script" uid="uid://0i1goqxf71p2" path="res://ui/ui_player/player_inv/inv_item.gd" id="4_jcne7"]
+[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player.tscn" id="5_e346v"]
+[ext_resource type="PackedScene" uid="uid://c1mihm1m405j6" path="res://ui/ui_lootbox/loot_box_overlay.tscn" id="6_0k5e7"]
+
+[sub_resource type="Resource" id="Resource_0pshh"]
+script = ExtResource("4_jcne7")
+id = "crystal"
+stack_size = 99
+metadata/_custom_type_script = "uid://0i1goqxf71p2"
+
+[sub_resource type="Resource" id="Resource_48k4c"]
+script = ExtResource("3_0pshh")
+item = SubResource("Resource_0pshh")
+amount = 50
+metadata/_custom_type_script = "uid://cnxvqwb0158xg"
+
+[sub_resource type="Resource" id="Resource_e346v"]
+script = ExtResource("3_0pshh")
+amount = 0
+metadata/_custom_type_script = "uid://cnxvqwb0158xg"
+
+[sub_resource type="Resource" id="Resource_0k5e7"]
+script = ExtResource("3_0pshh")
+amount = 0
+metadata/_custom_type_script = "uid://cnxvqwb0158xg"
+
+[sub_resource type="Resource" id="Resource_allg0"]
+script = ExtResource("2_jcne7")
+slots = Array[ExtResource("3_0pshh")]([SubResource("Resource_48k4c"), SubResource("Resource_e346v"), SubResource("Resource_0k5e7")])
+metadata/_custom_type_script = "uid://dtfgxlawbtj4l"
+
+[node name="LevelLootBox" type="Node2D"]
+script = ExtResource("1_7mkul")
+inv = SubResource("Resource_allg0")
+loadout = ExtResource("4_48k4c")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("5_e346v")]
+position = Vector2(298, 135)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="LootBoxOverlay" parent="Player/CanvasLayer" instance=ExtResource("6_0k5e7")]
+offset_left = 12.0
+offset_top = 2.0
+offset_right = 612.0
+offset_bottom = 302.0

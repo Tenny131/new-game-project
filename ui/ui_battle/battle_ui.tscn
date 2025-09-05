@@ -1,0 +1,134 @@
+[gd_scene load_steps=15 format=3 uid="uid://v4ead1f34ny0"]
+
+[ext_resource type="Script" uid="uid://btv8jya2fl1h7" path="res://ui/ui_battle/battle_ui.gd" id="1_mkf3x"]
+[ext_resource type="Script" uid="uid://b5fgk4qmd7vha" path="res://ui/ui_battle/battle_rewards/drop_entry.gd" id="2_0tpoo"]
+[ext_resource type="Resource" uid="uid://dwc7k7d1ccfan" path="res://characters/player/player_equipment.tres" id="2_lsafu"]
+[ext_resource type="Texture2D" uid="uid://cq22ti3sskhc" path="res://assets/UI/orange.png" id="2_tl3no"]
+[ext_resource type="Texture2D" uid="uid://bpu5xtefhh8o3" path="res://assets/UI/basic_ui.png" id="3_2g6xb"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="3_dkm7j"]
+[ext_resource type="Script" uid="uid://cu87gdjapvob3" path="res://content/cards/card_effects/card_effect.gd" id="4_6pc00"]
+[ext_resource type="Resource" uid="uid://c3pblh5g4s0n" path="res://content/cards/base_cards/card_resources/card2.tres" id="5_6pc00"]
+[ext_resource type="Script" uid="uid://bntjmyuarppuv" path="res://ui/ui_battle/battle_rewards/encounter_def.gd" id="5_nc33b"]
+
+[sub_resource type="Resource" id="Resource_gjgg8"]
+script = ExtResource("2_0tpoo")
+drop_type = "Currency"
+id = "Crystal"
+amount_min = 7
+amount_max = 1
+weight = 1
+metadata/_custom_type_script = "uid://b5fgk4qmd7vha"
+
+[sub_resource type="Resource" id="Resource_lqknr"]
+script = ExtResource("3_dkm7j")
+id = &""
+name = ""
+description = ""
+level = 1
+atk = 1
+hp = 1
+stack_size = 99
+effects = Array[ExtResource("4_6pc00")]([])
+rarity = "Common"
+metadata/_custom_type_script = "uid://blx7xg37orbhb"
+
+[sub_resource type="Resource" id="Resource_8lvp2"]
+script = ExtResource("5_nc33b")
+enemy_cards = Array[ExtResource("3_dkm7j")]([SubResource("Resource_lqknr")])
+drops = Array[ExtResource("2_0tpoo")]([SubResource("Resource_gjgg8")])
+rolls = 1
+metadata/_custom_type_script = "uid://bntjmyuarppuv"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6si3"]
+atlas = ExtResource("3_2g6xb")
+region = Rect2(642, 169, 28, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5va4n"]
+texture = SubResource("AtlasTexture_t6si3")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[node name="BattleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mkf3x")
+encounter = SubResource("Resource_8lvp2")
+player_loadout = ExtResource("2_lsafu")
+enemy_cards = Array[ExtResource("3_dkm7j")]([ExtResource("5_6pc00")])
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopRow" type="HBoxContainer" parent="Panel/VBox"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+theme_override_constants/separation = 84
+
+[node name="PlayerPane" type="VBoxContainer" parent="Panel/VBox/TopRow"]
+custom_minimum_size = Vector2(150, 300)
+layout_mode = 2
+
+[node name="PlayerCard" type="TextureRect" parent="Panel/VBox/TopRow/PlayerPane"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+texture = ExtResource("2_tl3no")
+
+[node name="PlayerHP" type="ProgressBar" parent="Panel/VBox/TopRow/PlayerPane"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxTexture_5va4n")
+step = 1.0
+value = 10.0
+
+[node name="EnemyPane" type="VBoxContainer" parent="Panel/VBox/TopRow"]
+custom_minimum_size = Vector2(150, 300)
+layout_mode = 2
+
+[node name="EnemyCard" type="TextureRect" parent="Panel/VBox/TopRow/EnemyPane"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+texture = ExtResource("2_tl3no")
+
+[node name="EnemyHP" type="ProgressBar" parent="Panel/VBox/TopRow/EnemyPane"]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxTexture_5va4n")
+step = 1.0
+value = 10.0
+
+[node name="LogPane" type="VBoxContainer" parent="Panel/VBox/TopRow"]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="LogLabel" type="Label" parent="Panel/VBox/TopRow/LogPane"]
+layout_mode = 2
+text = "LOGS:"
+
+[node name="Log" type="RichTextLabel" parent="Panel/VBox/TopRow/LogPane"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 1)
+text = "asdadadsadad
+"
+
+[node name="Controls" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="Panel/VBox/Controls"]
+layout_mode = 2
+text = "Start"
+
+[node name="Next" type="Button" parent="Panel/VBox/Controls"]
+layout_mode = 2
+text = "Next"

@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://yijfck2m2fpg"]
+
+[ext_resource type="Texture2D" uid="uid://byl0rt73nyr53" path="res://assets/game/items/cards/card_attack.png" id="1_gir4i"]
+
+[resource]
+texture = ExtResource("1_gir4i")

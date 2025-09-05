@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://iyfqji8tr2jd"]
+
+[ext_resource type="Script" uid="uid://v55j6dbt7yw2" path="res://ui/ui_player/player_equip/equip_ui_slot.gd" id="1_6jfit"]
+[ext_resource type="Texture2D" uid="uid://bnwxrajgeylmq" path="res://assets/UI/inventory/item_slot_default_background.png" id="2_3w274"]
+
+[node name="EquipUiSlot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(63, 63)
+offset_right = 18.0
+offset_bottom = 18.0
+script = ExtResource("1_6jfit")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_3w274")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(63, 63)
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ItemDisplay" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(19, 23)
+layout_mode = 0
+offset_top = 3.0
+offset_right = 46.0
+offset_bottom = 58.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 40
+text = "99"
+horizontal_alignment = 2
+vertical_alignment = 1

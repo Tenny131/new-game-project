@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardDef" load_steps=4 format=3 uid="uid://leygg6rjgk7t"]
+
+[ext_resource type="Script" uid="uid://cu87gdjapvob3" path="res://content/cards/card_effects/card_effect.gd" id="1_cj7b4"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="2_unbn6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vm6qq"]
+size = Vector2(30, 50)
+
+[resource]
+script = ExtResource("2_unbn6")
+id = &"1"
+name = "test3"
+description = "asd2"
+level = 6
+atk = 16
+hp = 50
+icon = SubResource("PlaceholderTexture2D_vm6qq")
+stack_size = 99
+effects = Array[ExtResource("1_cj7b4")]([])
+rarity = "Common"
+metadata/_custom_type_script = "uid://blx7xg37orbhb"

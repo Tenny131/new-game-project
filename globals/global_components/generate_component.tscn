@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbubl843yp4bq"]
+
+[ext_resource type="Script" uid="uid://cvyyjfqu3dtal" path="res://globals/global_components/generate_component.gd" id="1_wk141"]
+
+[node name="GenerateComponent" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_wk141")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

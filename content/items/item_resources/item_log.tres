@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemDef" load_steps=4 format=3 uid="uid://cgekjat48w126"]
+
+[ext_resource type="Texture2D" uid="uid://dp1k0wtycsotl" path="res://assets/game/items/tools_and_materials.png" id="1_g4hsd"]
+[ext_resource type="Script" uid="uid://e0qlps02p88b" path="res://content/items/item_def.gd" id="2_t2kcf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlrkn"]
+atlas = ExtResource("1_g4hsd")
+region = Rect2(33, 17, 14, 14)
+
+[resource]
+script = ExtResource("2_t2kcf")
+id = &"log"
+name = "log"
+icon = SubResource("AtlasTexture_tlrkn")
+stack_size = 99
+description = "logs"

@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://k4hn1nvi260u"]
+
+[ext_resource type="Script" uid="uid://ms5fspo47b07" path="res://world/levels/test_scene_cards.gd" id="1_jkwmv"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="2_etefc"]
+[ext_resource type="PackedScene" uid="uid://be56j1nosua6h" path="res://content/cards/base_cards/view_base_card.tscn" id="2_frvsy"]
+[ext_resource type="Resource" uid="uid://b1bks1374nmmq" path="res://content/cards/base_cards/card_resources/card1.tres" id="3_v0t5g"]
+[ext_resource type="Resource" uid="uid://c3pblh5g4s0n" path="res://content/cards/base_cards/card_resources/card2.tres" id="4_c7byu"]
+[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player.tscn" id="4_df662"]
+[ext_resource type="Resource" uid="uid://leygg6rjgk7t" path="res://content/cards/base_cards/card_resources/card3.tres" id="5_i64es"]
+
+[node name="TestSceneCards" type="Node2D"]
+script = ExtResource("1_jkwmv")
+card_pool = Array[ExtResource("2_etefc")]([ExtResource("3_v0t5g"), ExtResource("4_c7byu"), ExtResource("5_i64es")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BaseCard" parent="CanvasLayer" instance=ExtResource("2_frvsy")]
+visible = false
+position = Vector2(343, 140)
+
+[node name="BaseCard2" parent="CanvasLayer" instance=ExtResource("2_frvsy")]
+visible = false
+position = Vector2(132, 149)
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 81.0
+offset_bottom = 35.0
+text = "Booster Box"
+
+[node name="CardSpawnPoint" type="Node2D" parent="CanvasLayer"]
+position = Vector2(529, 137)
+
+[node name="Player" parent="." instance=ExtResource("4_df662")]
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1mihm1m405j6"]
+
+[ext_resource type="PackedScene" uid="uid://d28wyd768cv4i" path="res://ui/ui_lootbox/loot_box.tscn" id="1_3giwu"]
+[ext_resource type="Script" uid="uid://qmo0pa657jrh" path="res://ui/ui_lootbox/loot_box_overlay.gd" id="1_3yy4r"]
+
+[node name="LootBoxOverlay" type="Control"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -40.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3yy4r")
+
+[node name="Window" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 200.0
+
+[node name="Dimmer" type="ColorRect" parent="Window"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 300.0
+color = Color(0, 0, 0.0235294, 0.447059)
+
+[node name="VBox" type="VBoxContainer" parent="Window/Dimmer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 206.0
+theme_override_constants/separation = 34
+
+[node name="TitleBar" type="HBoxContainer" parent="Window/Dimmer/VBox"]
+custom_minimum_size = Vector2(600, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Window/Dimmer/VBox/TitleBar"]
+layout_mode = 2
+text = "                                                          Card Case                                                     "
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="Window/Dimmer/VBox/TitleBar"]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 2
+theme_override_constants/h_separation = 8
+text = "X"
+
+[node name="Content" parent="Window/Dimmer/VBox" instance=ExtResource("1_3giwu")]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+cost_amount = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/Dimmer/VBox"]
+layout_mode = 2
+
+[node name="InfoRow" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResultText" type="Label" parent="Window/Dimmer/VBox/MarginContainer/InfoRow"]
+layout_mode = 2
+text = "Roll a Card!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow"]
+layout_mode = 2
+
+[node name="RarityLegend" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer"]
+layout_mode = 2
+
+[node name="CommonBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/CommonBox"]
+layout_mode = 2
+
+[node name="UncommonBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/UncommonBox"]
+layout_mode = 2
+
+[node name="RareBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/RareBox"]
+layout_mode = 2
+
+[node name="LegendaryBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/LegendaryBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/LegendaryBox"]
+layout_mode = 2
+text = "Common"

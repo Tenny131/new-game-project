@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://be56j1nosua6h"]
+
+[ext_resource type="Script" uid="uid://d1pymvyp2h5pn" path="res://content/cards/base_cards/view_base_card.gd" id="1_5d4ww"]
+[ext_resource type="Resource" uid="uid://b1bks1374nmmq" path="res://content/cards/base_cards/card_resources/card1.tres" id="2_a47uq"]
+[ext_resource type="Texture2D" uid="uid://byb8s6lgi5jjl" path="res://assets/game/items/cards/base_card.png" id="3_sghak"]
+[ext_resource type="FontFile" uid="uid://ln7vgqupegx8" path="res://assets/UI/templates/pixel_font_template.ttf" id="4_scp7v"]
+[ext_resource type="Texture2D" uid="uid://cbnujmvj2ykrv" path="res://assets/game/items/cards/card_hp.png" id="5_7gid3"]
+[ext_resource type="LabelSettings" uid="uid://c2t6b4cpbt432" path="res://assets/UI/templates/label_template.tres" id="6_vg4rn"]
+[ext_resource type="Texture2D" uid="uid://byl0rt73nyr53" path="res://assets/game/items/cards/card_attack.png" id="7_djbgv"]
+[ext_resource type="Texture2D" uid="uid://cgbae7g6jkttf" path="res://assets/game/items/cards/card_images/pokemon_skitty.png" id="8_t6guf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki0q7"]
+atlas = ExtResource("3_sghak")
+region = Rect2(40, 21, 330, 462)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wd556"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkaex"]
+font = ExtResource("4_scp7v")
+font_size = 50
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv0vy"]
+atlas = ExtResource("8_t6guf")
+region = Rect2(0, 0, 51, 51)
+
+[node name="BaseCard" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_5d4ww")
+card_def = ExtResource("2_a47uq")
+
+[node name="BaseCardSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ki0q7")
+
+[node name="CardStats" type="Node2D" parent="."]
+
+[node name="CardLevel" type="Node2D" parent="CardStats"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CardStats/CardLevel"]
+position = Vector2(150, -216)
+scale = Vector2(5, 5)
+texture = SubResource("CompressedTexture2D_wd556")
+
+[node name="Label" type="Label" parent="CardStats/CardLevel"]
+offset_left = 120.0
+offset_top = -246.0
+offset_right = 180.0
+offset_bottom = -186.0
+text = "2"
+label_settings = SubResource("LabelSettings_rkaex")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardHP" type="Node2D" parent="CardStats"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CardStats/CardHP"]
+position = Vector2(106, 212)
+scale = Vector2(3, 3)
+texture = ExtResource("5_7gid3")
+
+[node name="Label" type="Label" parent="CardStats/CardHP"]
+offset_left = 40.0
+offset_top = 183.0
+offset_right = 174.0
+offset_bottom = 237.0
+text = "10 hP"
+label_settings = ExtResource("6_vg4rn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardAtk" type="Node2D" parent="CardStats"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CardStats/CardAtk"]
+position = Vector2(-131, 213)
+scale = Vector2(3, 3)
+texture = ExtResource("7_djbgv")
+
+[node name="Label" type="Label" parent="CardStats/CardAtk"]
+offset_left = -185.0
+offset_top = 188.0
+offset_right = -72.0
+offset_bottom = 237.0
+text = "4 ATK"
+label_settings = ExtResource("6_vg4rn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardDetails" type="Node2D" parent="."]
+
+[node name="ImageSprite2D" type="Sprite2D" parent="CardDetails"]
+position = Vector2(0, -100)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_sv0vy")
+
+[node name="CardNameLabel" type="Label" parent="CardDetails"]
+offset_left = -123.0
+offset_top = 36.0
+offset_right = 118.0
+offset_bottom = 59.0
+text = "Basic Pokemon"
+label_settings = ExtResource("6_vg4rn")
+
+[node name="CardDescriptionLabel" type="Label" parent="CardDetails"]
+offset_left = -125.0
+offset_top = 76.0
+offset_right = 126.0
+offset_bottom = 181.0
+text = "this is the best card"
+label_settings = ExtResource("6_vg4rn")
+horizontal_alignment = 1
+vertical_alignment = 1
