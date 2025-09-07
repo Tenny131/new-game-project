@@ -3,7 +3,7 @@ extends Area2D
 class_name CollectableComponent
 
 # Use ONE of these:
-@export var item: ItemDef = null              # preferred: a ready InvItem .tres
+@export var item: InvItem = null              # preferred: a ready InvItem .tres
 @export var item_id: StringName = &""         # fallback: build from id via ItemFactory
 @export var amount: int = 1                   # how many to give
 

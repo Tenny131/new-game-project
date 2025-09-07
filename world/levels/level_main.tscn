@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://gfx8l75adq82"]
 
 [ext_resource type="TileSet" uid="uid://xfh3sluabu4e" path="res://assets/tilesets/game_tile_set.tres" id="1_eybdx"]
-[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player.tscn" id="2_j2mka"]
+[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player/player.tscn" id="2_j2mka"]
 [ext_resource type="PackedScene" uid="uid://7udgsoxue4tf" path="res://characters/npc/npc_chicken.tscn" id="3_o1akv"]
 [ext_resource type="PackedScene" uid="uid://33bjxvscbtt0" path="res://characters/npc/npc_cow.tscn" id="4_inwy8"]
 [ext_resource type="PackedScene" uid="uid://dwqvel134xmm0" path="res://ui/ui_player/player_main_ui.tscn" id="5_6k3gh"]
@@ -16,7 +16,6 @@ source_geometry_mode = 2
 [node name="TestSceneHouseTilemap" type="Node2D"]
 
 [node name="HouseTilemap" type="Node2D" parent="."]
-visible = false
 y_sort_enabled = true
 position = Vector2(-23, 171)
 
@@ -38,7 +37,6 @@ tile_map_data = PackedByteArray("AAASAA8AAwAAAAAABAAUAA8AAwAAAAAABAAWAA8AAwAAAAA
 tile_set = ExtResource("1_eybdx")
 
 [node name="GameTilemap" type="Node2D" parent="."]
-visible = false
 position = Vector2(-90, 168)
 
 [node name="Water" type="TileMapLayer" parent="GameTilemap"]

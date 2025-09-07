@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardDef" load_steps=4 format=3 uid="uid://dan550bhwgght"]
+
+[ext_resource type="Script" uid="uid://cu87gdjapvob3" path="res://content/cards/card_effects/card_effect.gd" id="1_jl2gr"]
+[ext_resource type="Texture2D" uid="uid://b5qherhxq5fee" path="res://assets/game/items/cards/card_images/dragon1.png" id="2_3r3bn"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="3_1wfgd"]
+
+[resource]
+script = ExtResource("3_1wfgd")
+id = &"life_dragon"
+name = "Zerclea, The Life Skydragon"
+description = "A radiant dragon that soars above the clouds, Zerclea embodies vitality and renewal. Its wings shimmer with life-energy, said to heal the skies themselves and bring balance to all beneath its flight."
+level = 2
+atk = 50
+hp = 200
+icon = ExtResource("2_3r3bn")
+stack_size = 99
+effects = Array[ExtResource("1_jl2gr")]([])
+rarity = "Rare"
+metadata/_custom_type_script = "uid://blx7xg37orbhb"

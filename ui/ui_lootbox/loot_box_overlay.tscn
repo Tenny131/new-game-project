@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1mihm1m405j6"]
+[gd_scene load_steps=11 format=3 uid="uid://c1mihm1m405j6"]
 
 [ext_resource type="PackedScene" uid="uid://d28wyd768cv4i" path="res://ui/ui_lootbox/loot_box.tscn" id="1_3giwu"]
 [ext_resource type="Script" uid="uid://qmo0pa657jrh" path="res://ui/ui_lootbox/loot_box_overlay.gd" id="1_3yy4r"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="3_oj6vm"]
+[ext_resource type="Resource" uid="uid://chtn6n1kmn5q2" path="res://content/cards/base_cards/card_resources/valkrye.tres" id="4_y4dqc"]
+[ext_resource type="Resource" uid="uid://dan550bhwgght" path="res://content/cards/base_cards/card_resources/life_dragonj.tres" id="5_2i8bg"]
+[ext_resource type="Resource" uid="uid://bgfwg7u55lv5h" path="res://content/cards/base_cards/card_resources/mui_mui.tres" id="6_e1o0a"]
+[ext_resource type="Script" uid="uid://cu87gdjapvob3" path="res://content/cards/card_effects/card_effect.gd" id="7_l038v"]
+[ext_resource type="Texture2D" uid="uid://bgf1t0dqeytam" path="res://assets/game/items/cards/card_images/3DS - Puzzle & Dragons Z - Monsters - Ultimate Entity, Enigma(1).png" id="8_7bri0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gkbh"]
+atlas = ExtResource("8_7bri0")
+region = Rect2(10, 228, 51, 33)
+
+[sub_resource type="Resource" id="Resource_w27md"]
+script = ExtResource("3_oj6vm")
+id = &"enigma"
+name = "Ultimate Entity, Enigma"
+description = "gg"
+level = 3
+atk = 50
+hp = 1000
+icon = SubResource("AtlasTexture_2gkbh")
+stack_size = 1
+effects = Array[ExtResource("7_l038v")]([])
+rarity = "Legendary"
+metadata/_custom_type_script = "uid://blx7xg37orbhb"
 
 [node name="LootBoxOverlay" type="Control"]
 custom_minimum_size = Vector2(600, 300)
@@ -22,7 +46,7 @@ offset_right = 400.0
 offset_bottom = 200.0
 
 [node name="Dimmer" type="ColorRect" parent="Window"]
-custom_minimum_size = Vector2(600, 300)
+custom_minimum_size = Vector2(600, 350)
 layout_mode = 0
 offset_right = 600.0
 offset_bottom = 300.0
@@ -54,7 +78,9 @@ text = "X"
 [node name="Content" parent="Window/Dimmer/VBox" instance=ExtResource("1_3giwu")]
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
+card_pool = Array[ExtResource("3_oj6vm")]([ExtResource("4_y4dqc"), ExtResource("5_2i8bg"), ExtResource("6_e1o0a"), SubResource("Resource_w27md")])
 cost_amount = 5
+preview_in_reel_end = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Window/Dimmer/VBox"]
 layout_mode = 2

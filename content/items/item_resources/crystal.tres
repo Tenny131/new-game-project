@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c278sjhgwr4lm"]
+
+[ext_resource type="Script" uid="uid://0i1goqxf71p2" path="res://ui/ui_player/player_inv/inv_item.gd" id="1_asv5v"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ybxme"]
+load_path = "res://.godot/imported/crystal.png-4452779d6e6f94be3751a7fd3afc5523.ctex"
+
+[resource]
+script = ExtResource("1_asv5v")
+id = "crystal"
+texture = SubResource("CompressedTexture2D_ybxme")
+stack_size = 99
+metadata/_custom_type_script = "uid://0i1goqxf71p2"

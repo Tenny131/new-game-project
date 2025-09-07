@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://be56j1nosua6h" path="res://content/cards/base_cards/view_base_card.tscn" id="2_frvsy"]
 [ext_resource type="Resource" uid="uid://b1bks1374nmmq" path="res://content/cards/base_cards/card_resources/card1.tres" id="3_v0t5g"]
 [ext_resource type="Resource" uid="uid://c3pblh5g4s0n" path="res://content/cards/base_cards/card_resources/card2.tres" id="4_c7byu"]
-[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player.tscn" id="4_df662"]
+[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player/player.tscn" id="4_df662"]
 [ext_resource type="Resource" uid="uid://leygg6rjgk7t" path="res://content/cards/base_cards/card_resources/card3.tres" id="5_i64es"]
 
 [node name="TestSceneCards" type="Node2D"]

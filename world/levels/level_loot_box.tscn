@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cnxvqwb0158xg" path="res://ui/ui_player/player_inv/inv_slot.gd" id="3_0pshh"]
 [ext_resource type="Resource" uid="uid://dwc7k7d1ccfan" path="res://characters/player/player_equipment.tres" id="4_48k4c"]
 [ext_resource type="Script" uid="uid://0i1goqxf71p2" path="res://ui/ui_player/player_inv/inv_item.gd" id="4_jcne7"]
-[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player.tscn" id="5_e346v"]
+[ext_resource type="PackedScene" uid="uid://vl4wumt5cuf4" path="res://characters/player/player.tscn" id="5_e346v"]
 [ext_resource type="PackedScene" uid="uid://c1mihm1m405j6" path="res://ui/ui_lootbox/loot_box_overlay.tscn" id="6_0k5e7"]
 
 [sub_resource type="Resource" id="Resource_0pshh"]

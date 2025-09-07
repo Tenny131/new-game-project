@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CardDef" load_steps=4 format=3 uid="uid://bgfwg7u55lv5h"]
+
+[ext_resource type="Script" uid="uid://cu87gdjapvob3" path="res://content/cards/card_effects/card_effect.gd" id="1_ludkb"]
+[ext_resource type="Texture2D" uid="uid://cddw8gbi7k470" path="res://assets/game/items/cards/card_images/mui_mui.png" id="2_07y7f"]
+[ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="3_1q5s2"]
+
+[resource]
+script = ExtResource("3_1q5s2")
+id = &"mui_mui"
+name = "Mui Mui"
+description = "."
+level = 1
+atk = 5
+hp = 7
+icon = ExtResource("2_07y7f")
+stack_size = 99
+effects = Array[ExtResource("1_ludkb")]([])
+rarity = "Common"
+metadata/_custom_type_script = "uid://blx7xg37orbhb"

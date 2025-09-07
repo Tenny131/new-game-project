@@ -1,24 +1,10 @@
-[gd_resource type="Resource" script_class="Inv" load_steps=23 format=3 uid="uid://32raf761nwkw"]
+[gd_resource type="Resource" script_class="Inv" load_steps=19 format=3 uid="uid://32raf761nwkw"]
 
 [ext_resource type="Script" uid="uid://dtfgxlawbtj4l" path="res://ui/ui_player/player_inv/inv.gd" id="1_fhgtu"]
 [ext_resource type="Script" uid="uid://cnxvqwb0158xg" path="res://ui/ui_player/player_inv/inv_slot.gd" id="2_ptr4k"]
-[ext_resource type="Resource" uid="uid://b1bks1374nmmq" path="res://content/cards/base_cards/card_resources/card1.tres" id="4_ahw18"]
-[ext_resource type="Script" uid="uid://0i1goqxf71p2" path="res://ui/ui_player/player_inv/inv_item.gd" id="5_01bfv"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8ydm0"]
-size = Vector2(40, 40)
-
-[sub_resource type="Resource" id="Resource_klx0u"]
-script = ExtResource("5_01bfv")
-id = "pokemon"
-texture = SubResource("PlaceholderTexture2D_8ydm0")
-stack_size = 99
-card_def = ExtResource("4_ahw18")
-metadata/_custom_type_script = "uid://0i1goqxf71p2"
 
 [sub_resource type="Resource" id="Resource_65xq6"]
 script = ExtResource("2_ptr4k")
-item = SubResource("Resource_klx0u")
 amount = 4
 metadata/_custom_type_script = "uid://cnxvqwb0158xg"
 

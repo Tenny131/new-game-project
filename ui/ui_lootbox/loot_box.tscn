@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d28wyd768cv4i"]
+[gd_scene load_steps=8 format=3 uid="uid://d28wyd768cv4i"]
 
 [ext_resource type="Script" uid="uid://bui3k70mo7cdd" path="res://globals/global_components/loot_box_component.gd" id="1_cp87q"]
 [ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="3_4ou87"]
 [ext_resource type="Resource" uid="uid://b1bks1374nmmq" path="res://content/cards/base_cards/card_resources/card1.tres" id="4_v0c37"]
 [ext_resource type="Resource" uid="uid://leygg6rjgk7t" path="res://content/cards/base_cards/card_resources/card3.tres" id="5_cypfb"]
+[ext_resource type="Resource" uid="uid://chtn6n1kmn5q2" path="res://content/cards/base_cards/card_resources/valkrye.tres" id="6_ii2mf"]
 [ext_resource type="Resource" uid="uid://c3pblh5g4s0n" path="res://content/cards/base_cards/card_resources/card2.tres" id="6_usvkx"]
+[ext_resource type="Resource" uid="uid://dan550bhwgght" path="res://content/cards/base_cards/card_resources/life_dragonj.tres" id="7_xxa2p"]
 
 [node name="Content" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_cp87q")
-card_pool = Array[ExtResource("3_4ou87")]([ExtResource("4_v0c37"), ExtResource("5_cypfb"), ExtResource("6_usvkx")])
+card_pool = Array[ExtResource("3_4ou87")]([ExtResource("4_v0c37"), ExtResource("5_cypfb"), ExtResource("6_usvkx"), ExtResource("6_ii2mf"), ExtResource("7_xxa2p")])
 spin_duration = 5.0
 card_preview_spawn_path = NodePath("CardPreviewSpawnPoint")
 
@@ -50,4 +52,4 @@ offset_bottom = 166.0
 text = "Open 10x Basic Lootboxes"
 
 [node name="CardPreviewSpawnPoint" type="Node2D" parent="."]
-position = Vector2(307, 144)
+position = Vector2(308, 101)
