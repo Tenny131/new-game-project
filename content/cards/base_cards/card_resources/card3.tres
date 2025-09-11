@@ -17,5 +17,5 @@ hp = 50
 icon = SubResource("PlaceholderTexture2D_vm6qq")
 stack_size = 99
 effects = Array[ExtResource("1_cj7b4")]([])
-rarity = "Common"
+rarity = "Rare"
 metadata/_custom_type_script = "uid://blx7xg37orbhb"

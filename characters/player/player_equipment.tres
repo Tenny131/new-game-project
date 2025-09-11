@@ -7,25 +7,25 @@
 [ext_resource type="Script" uid="uid://cnxvqwb0158xg" path="res://ui/ui_player/player_inv/inv_slot.gd" id="4_aj8j4"]
 [ext_resource type="Resource" uid="uid://c278sjhgwr4lm" path="res://content/items/item_resources/crystal.tres" id="5_aj8j4"]
 
+[sub_resource type="Resource" id="Resource_s5wm1"]
+script = ExtResource("1_n0uao")
+id = ""
+stack_size = 99
+metadata/_custom_type_script = "uid://0i1goqxf71p2"
+
 [sub_resource type="Resource" id="Resource_xfwtl"]
 script = ExtResource("1_n0uao")
 id = ""
 stack_size = 99
 metadata/_custom_type_script = "uid://0i1goqxf71p2"
 
+[sub_resource type="Resource" id="Resource_sxp2n"]
+script = ExtResource("1_n0uao")
+id = ""
+stack_size = 99
+metadata/_custom_type_script = "uid://0i1goqxf71p2"
+
 [sub_resource type="Resource" id="Resource_ljmsq"]
-script = ExtResource("1_n0uao")
-id = ""
-stack_size = 99
-metadata/_custom_type_script = "uid://0i1goqxf71p2"
-
-[sub_resource type="Resource" id="Resource_ncuq4"]
-script = ExtResource("1_n0uao")
-id = ""
-stack_size = 99
-metadata/_custom_type_script = "uid://0i1goqxf71p2"
-
-[sub_resource type="Resource" id="Resource_kss2q"]
 script = ExtResource("1_n0uao")
 id = ""
 stack_size = 99
@@ -145,6 +145,6 @@ metadata/_custom_type_script = "uid://0i1goqxf71p2"
 script = ExtResource("2_p2l4i")
 cards = ExtResource("2_omrne")
 items = SubResource("Resource_aj8j4")
-battle = Array[ExtResource("1_n0uao")]([SubResource("Resource_xfwtl"), SubResource("Resource_ljmsq"), SubResource("Resource_ncuq4"), SubResource("Resource_kss2q")])
+battle = Array[ExtResource("1_n0uao")]([SubResource("Resource_s5wm1"), SubResource("Resource_xfwtl"), SubResource("Resource_sxp2n"), SubResource("Resource_ljmsq")])
 support = Array[ExtResource("1_n0uao")]([SubResource("Resource_uwfof"), SubResource("Resource_0oow4"), SubResource("Resource_aueea"), SubResource("Resource_141bg")])
 metadata/_custom_type_script = "uid://j53d75gyqeg3"

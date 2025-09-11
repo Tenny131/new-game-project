@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1mihm1m405j6"]
+[gd_scene load_steps=9 format=3 uid="uid://c1mihm1m405j6"]
 
 [ext_resource type="Script" uid="uid://qmo0pa657jrh" path="res://ui/ui_lootbox/loot_box_overlay.gd" id="1_3yy4r"]
 [ext_resource type="Script" uid="uid://bui3k70mo7cdd" path="res://globals/global_components/loot_box_component.gd" id="2_f8fyj"]
@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://chtn6n1kmn5q2" path="res://content/cards/base_cards/card_resources/valkrye.tres" id="4_y4dqc"]
 [ext_resource type="Resource" uid="uid://dan550bhwgght" path="res://content/cards/base_cards/card_resources/life_dragonj.tres" id="5_2i8bg"]
 [ext_resource type="Resource" uid="uid://bgfwg7u55lv5h" path="res://content/cards/base_cards/card_resources/mui_mui.tres" id="6_e1o0a"]
+[ext_resource type="Resource" uid="uid://leygg6rjgk7t" path="res://content/cards/base_cards/card_resources/card3.tres" id="7_oj6vm"]
+[ext_resource type="Resource" uid="uid://c3pblh5g4s0n" path="res://content/cards/base_cards/card_resources/card2.tres" id="8_y4dqc"]
 
 [node name="LootBoxOverlay" type="Control"]
 custom_minimum_size = Vector2(750, 350)
@@ -74,7 +76,14 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 script = ExtResource("2_f8fyj")
-card_pool = Array[ExtResource("3_oj6vm")]([ExtResource("5_2i8bg"), ExtResource("6_e1o0a"), ExtResource("4_y4dqc")])
+card_pool = Array[ExtResource("3_oj6vm")]([ExtResource("5_2i8bg"), ExtResource("6_e1o0a"), ExtResource("4_y4dqc"), ExtResource("7_oj6vm"), ExtResource("8_y4dqc")])
+preview_in_reel_end = false
+rarity_weights = {
+"Common": 60.0,
+"Epic": 9.0,
+"Legendary": 6.0,
+"Rare": 25.0
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer/VBox/Content"]
 custom_minimum_size = Vector2(600, 200)
