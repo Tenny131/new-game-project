@@ -9,8 +9,20 @@
 [ext_resource type="Resource" uid="uid://dan550bhwgght" path="res://content/cards/base_cards/card_resources/life_dragonj.tres" id="7_xxa2p"]
 
 [node name="Content" type="Control"]
+custom_minimum_size = Vector2(600, 200)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_cp87q")
 card_pool = Array[ExtResource("3_4ou87")]([ExtResource("4_v0c37"), ExtResource("5_cypfb"), ExtResource("6_usvkx"), ExtResource("6_ii2mf"), ExtResource("7_xxa2p")])
 spin_duration = 5.0
@@ -19,8 +31,8 @@ card_preview_spawn_path = NodePath("CardPreviewSpawnPoint")
 [node name="Reel" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 0
-offset_left = 75.0
-offset_right = 575.0
+offset_left = 50.0
+offset_right = 550.0
 offset_bottom = 200.0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
@@ -30,9 +42,9 @@ layout_mode = 2
 
 [node name="Marker" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 533.0
+offset_left = 297.0
 offset_top = -6.0
-offset_right = 538.0
+offset_right = 303.0
 offset_bottom = 13.0
 
 [node name="OpenButton" type="Button" parent="."]

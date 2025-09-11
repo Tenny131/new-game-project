@@ -3,9 +3,9 @@ extends Control
 
 @onready var dimmer: ColorRect = $Window/Dimmer
 @onready var window: Control = $Window
-@onready var content: Node   = $Window/Dimmer/VBox/Content       # LootBoxComponent lives here
-@onready var result_text: Label = $Window/Dimmer/VBox/MarginContainer/InfoRow/ResultText
-@onready var close_btn: Button  = $Window/Dimmer/VBox/TitleBar/Close
+@onready var content: Node   = $Window/Dimmer/HBoxContainer/VBox/Content     # LootBoxComponent lives here
+@onready var result_text: Label = $Window/Dimmer/HBoxContainer/VBox/ResultText
+@onready var close_btn: Button  = $Window/Dimmer/HBoxContainer/VBox/TitleBar/Close
 
 func _ready() -> void:
 	visible = false

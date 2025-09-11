@@ -15,5 +15,5 @@ hp = 200
 icon = ExtResource("2_3r3bn")
 stack_size = 99
 effects = Array[ExtResource("1_jl2gr")]([])
-rarity = "Rare"
+rarity = "Uncommon"
 metadata/_custom_type_script = "uid://blx7xg37orbhb"

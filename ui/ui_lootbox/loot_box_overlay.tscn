@@ -1,42 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1mihm1m405j6"]
+[gd_scene load_steps=7 format=3 uid="uid://c1mihm1m405j6"]
 
-[ext_resource type="PackedScene" uid="uid://d28wyd768cv4i" path="res://ui/ui_lootbox/loot_box.tscn" id="1_3giwu"]
 [ext_resource type="Script" uid="uid://qmo0pa657jrh" path="res://ui/ui_lootbox/loot_box_overlay.gd" id="1_3yy4r"]
+[ext_resource type="Script" uid="uid://bui3k70mo7cdd" path="res://globals/global_components/loot_box_component.gd" id="2_f8fyj"]
 [ext_resource type="Script" uid="uid://blx7xg37orbhb" path="res://content/cards/base_cards/base_card_def.gd" id="3_oj6vm"]
 [ext_resource type="Resource" uid="uid://chtn6n1kmn5q2" path="res://content/cards/base_cards/card_resources/valkrye.tres" id="4_y4dqc"]
 [ext_resource type="Resource" uid="uid://dan550bhwgght" path="res://content/cards/base_cards/card_resources/life_dragonj.tres" id="5_2i8bg"]
 [ext_resource type="Resource" uid="uid://bgfwg7u55lv5h" path="res://content/cards/base_cards/card_resources/mui_mui.tres" id="6_e1o0a"]
-[ext_resource type="Script" uid="uid://cu87gdjapvob3" path="res://content/cards/card_effects/card_effect.gd" id="7_l038v"]
-[ext_resource type="Texture2D" uid="uid://bgf1t0dqeytam" path="res://assets/game/items/cards/card_images/3DS - Puzzle & Dragons Z - Monsters - Ultimate Entity, Enigma(1).png" id="8_7bri0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2gkbh"]
-atlas = ExtResource("8_7bri0")
-region = Rect2(10, 228, 51, 33)
-
-[sub_resource type="Resource" id="Resource_w27md"]
-script = ExtResource("3_oj6vm")
-id = &"enigma"
-name = "Ultimate Entity, Enigma"
-description = "gg"
-level = 3
-atk = 50
-hp = 1000
-icon = SubResource("AtlasTexture_2gkbh")
-stack_size = 1
-effects = Array[ExtResource("7_l038v")]([])
-rarity = "Legendary"
-metadata/_custom_type_script = "uid://blx7xg37orbhb"
 
 [node name="LootBoxOverlay" type="Control"]
-custom_minimum_size = Vector2(600, 300)
+custom_minimum_size = Vector2(750, 350)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -40.0
-offset_bottom = -60.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -175.0
+offset_right = 375.0
+offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_3yy4r")
 
 [node name="Window" type="NinePatchRect" parent="."]
@@ -46,85 +32,181 @@ offset_right = 400.0
 offset_bottom = 200.0
 
 [node name="Dimmer" type="ColorRect" parent="Window"]
-custom_minimum_size = Vector2(600, 350)
+custom_minimum_size = Vector2(750, 350)
 layout_mode = 0
 offset_right = 600.0
 offset_bottom = 300.0
 color = Color(0, 0, 0.0235294, 0.447059)
 
-[node name="VBox" type="VBoxContainer" parent="Window/Dimmer"]
-custom_minimum_size = Vector2(400, 200)
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/Dimmer"]
 layout_mode = 0
-offset_right = 400.0
-offset_bottom = 206.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 34
 
-[node name="TitleBar" type="HBoxContainer" parent="Window/Dimmer/VBox"]
+[node name="TitleBar" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/VBox"]
 custom_minimum_size = Vector2(600, 40)
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="Window/Dimmer/VBox/TitleBar"]
+[node name="Title" type="Label" parent="Window/Dimmer/HBoxContainer/VBox/TitleBar"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "                                                          Card Case                                                     "
 horizontal_alignment = 1
 
-[node name="Close" type="Button" parent="Window/Dimmer/VBox/TitleBar"]
+[node name="Close" type="Button" parent="Window/Dimmer/HBoxContainer/VBox/TitleBar"]
 custom_minimum_size = Vector2(31, 31)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/h_separation = 8
 text = "X"
 
-[node name="Content" parent="Window/Dimmer/VBox" instance=ExtResource("1_3giwu")]
-custom_minimum_size = Vector2(600, 200)
-layout_mode = 2
-card_pool = Array[ExtResource("3_oj6vm")]([ExtResource("4_y4dqc"), ExtResource("5_2i8bg"), ExtResource("6_e1o0a"), SubResource("Resource_w27md")])
-cost_amount = 5
-preview_in_reel_end = false
-
-[node name="MarginContainer" type="MarginContainer" parent="Window/Dimmer/VBox"]
-layout_mode = 2
-
-[node name="InfoRow" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="ResultText" type="Label" parent="Window/Dimmer/VBox/MarginContainer/InfoRow"]
+[node name="ResultText" type="Label" parent="Window/Dimmer/HBoxContainer/VBox"]
 layout_mode = 2
 text = "Roll a Card!"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow"]
+[node name="Content" type="Control" parent="Window/Dimmer/HBoxContainer/VBox"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+script = ExtResource("2_f8fyj")
+card_pool = Array[ExtResource("3_oj6vm")]([ExtResource("5_2i8bg"), ExtResource("6_e1o0a"), ExtResource("4_y4dqc")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer/VBox/Content"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 200.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer"]
 layout_mode = 2
 
-[node name="RarityLegend" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer"]
+[node name="Spacer" type="Control" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="CommonBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+[node name="Reel" type="ScrollContainer" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="Row" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer2/Reel"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/CommonBox"]
+[node name="Spacer2" type="Control" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="UncommonBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/UncommonBox"]
+[node name="Control" type="Control" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OpenButton" type="Button" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Open Basic Lootbox"
+
+[node name="Open10Button" type="Button" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Open 10x Basic Lootboxes"
+
+[node name="Control2" type="Control" parent="Window/Dimmer/HBoxContainer/VBox/Content/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/Dimmer/HBoxContainer"]
 layout_mode = 2
 
-[node name="RareBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+[node name="InfoRow" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/RareBox"]
+[node name="RarityLegend" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer"]
 layout_mode = 2
 
-[node name="LegendaryBox" type="HBoxContainer" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+[node name="Placeholder" type="Control" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Common" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Common"]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/LegendaryBox"]
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Common/HBoxContainer"]
+custom_minimum_size = Vector2(20, 50)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Window/Dimmer/VBox/MarginContainer/InfoRow/MarginContainer/RarityLegend/LegendaryBox"]
+[node name="Common" type="Label" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Common/HBoxContainer"]
 layout_mode = 2
-text = "Common"
+text = "50% Common"
+
+[node name="Rare" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Rare"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Rare/HBoxContainer"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+color = Color(0.376471, 0.501961, 0.94902, 1)
+
+[node name="Rare" type="Label" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Rare/HBoxContainer"]
+layout_mode = 2
+text = "50% Rare"
+
+[node name="Epic" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Epic"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Epic/HBoxContainer"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+color = Color(0.427262, 0.000138617, 0.432406, 1)
+
+[node name="Epic" type="Label" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Epic/HBoxContainer"]
+layout_mode = 2
+text = "50% Epic"
+
+[node name="Legendary" type="VBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Legendary"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Legendary/HBoxContainer"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="Legendary" type="Label" parent="Window/Dimmer/HBoxContainer/MarginContainer/InfoRow/MarginContainer/RarityLegend/Legendary/HBoxContainer"]
+layout_mode = 2
+text = "50% Legendary"
+
+[node name="Marker" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(7, 20)
+offset_left = 297.0
+offset_top = 120.0
+offset_right = 304.0
+offset_bottom = 140.0

@@ -24,8 +24,8 @@ ItemFactory="*res://globals/global_autoload/item_factory.gd"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=800
+window/size/viewport_width=1800
+window/size/viewport_height=900
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"

@@ -26,11 +26,11 @@ var loadout: PlayerLoadout = null                  # Resolved from player in _re
 @export var preview_seconds: float = 2.0
 
 # ---- UI refs (inside this scene) ----
-@onready var reel: ScrollContainer = $Reel
-@onready var row: HBoxContainer = $Reel/Row
-@onready var marker: ColorRect = $Marker
-@onready var btn: Button = $OpenButton
-@onready var btn10 : Button = $Open10Button
+@onready var reel: ScrollContainer = $VBoxContainer/HBoxContainer2/Reel
+@onready var row: HBoxContainer = $VBoxContainer/HBoxContainer2/Reel/Row
+@onready var marker: ColorRect = $"../Marker"
+@onready var btn: Button = $VBoxContainer/HBoxContainer/OpenButton
+@onready var btn10 : Button = $VBoxContainer/HBoxContainer/Open10Button
 @onready var preview_spawn: Node2D = get_node_or_null(card_preview_spawn_path) as Node2D
 
 var _spinning: bool = false
@@ -129,23 +129,41 @@ func _spin_to(target_def: CardDef) -> void:
 		c.queue_free()
 	await get_tree().process_frame
 
-	# Fill with random tiles + the target at the end
-	for i: int in range(tiles_to_spin - 1):
-		var d: CardDef = _pick_weighted(card_pool)
-		row.add_child(_make_tile(d))
+	# Sizing
+	var visible_w: float = reel.size.x                     # viewport width
+	var tile_w: float = float(tile_size.x + tile_gap)
+	var center_offset: float = max((visible_w - float(tile_size.x)) * 0.5, 0.0)
+
+	# How many padding tiles are needed to allow centering the first/last tiles
+	var pad_tiles: int = int(ceil(center_offset / tile_w)) + 1
+
+	# LEFT padding (can be blanks or randoms; randoms look nicer)
+	for i in range(pad_tiles):
+		row.add_child(_make_tile(_pick_weighted(card_pool)))
+
+	# Spin content before the target
+	for i in range(tiles_to_spin - 1):
+		row.add_child(_make_tile(_pick_weighted(card_pool)))
+
+	# Target tile
 	var target_tile: Control = _make_tile(target_def)
 	row.add_child(target_tile)
+
+	# RIGHT padding
+	for i in range(pad_tiles):
+		row.add_child(_make_tile(_pick_weighted(card_pool)))
 
 	await get_tree().process_frame
 
 	# Scroll so the target centers under the marker
 	reel.scroll_horizontal = 0
-	var visible_w: float = reel.size.x
-	var tile_w: float = float(tile_size.x + tile_gap)
-	var target_index: int = row.get_child_count() - 1
+	var target_index: int = pad_tiles + (tiles_to_spin - 1)   # index of target in the row
 	var target_x: float = target_index * tile_w
-	var center_offset: float = (visible_w - float(tile_size.x)) * 0.5
 	var target_scroll: float = max(target_x - center_offset, 0.0)
+
+	# Optional clamp to the real max just in case layouts change
+	# var hbar := reel.get_h_scroll_bar()
+	# if hbar: target_scroll = clamp(target_scroll, 0.0, hbar.max_value)
 
 	var tw: Tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tw.tween_property(reel, "scroll_horizontal", int(target_scroll), spin_duration)
